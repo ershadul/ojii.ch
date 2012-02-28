@@ -1,0 +1,11 @@
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.timestamp {
+  float: right;
+  font-size: smaller;
+  font-style:italic;
+  color: #aaa;
+}
