@@ -1,30 +1,9 @@
 # -*- coding: utf-8 -*-
-from werkzeug.contrib.cache import MemcachedCache
 import datetime
 import json
 import requests
 import time
 import rfc822
-
-
-CACHE_KEY_TEMPLATE = 'ojii.ch:timeline:%s'
-CACHE_TIMEOUT = 5 * 60
-
-cache = MemcachedCache(['127.0.0.1:11211'])
-
-def cached(func):
-    key = CACHE_KEY_TEMPLATE % func.__name__
-    cached = cache.get(key)
-    if cached:
-        for thing in cached:
-            yield thing
-    else:
-        items = []
-        for thing in func():
-            yield thing
-            items.append(thing)
-        cache.set(key, items, timeout=CACHE_TIMEOUT)
-
 
 GITHUB_URL = 'https://api.github.com/users/ojii/events'
 GITHUB_TIME_FORMAT = '%Y-%m-%dT%H:%M:%SZ' # 2012-02-28T14:34:28Z
@@ -57,7 +36,7 @@ def internal():
 
 def gather():
     items = []
-    items.extend(cached(github))
-    items.extend(cached(twitter))
-    items.extend(cached(internal))
+    items.extend(github())
+    items.extend(twitter())
+    items.extend(internal())
     return sorted(items, key=lambda item: -item['timestamp'])

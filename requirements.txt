@@ -1,9 +1,12 @@
 Flask==0.8
 Jinja2==2.6
 Werkzeug==0.8.3
+blinker==1.2
 certifi==0.0.8
 chardet==1.0.1
 gunicorn==0.13.4
 pylibmc==1.2.2
+raven==1.4.6
 requests==0.10.6
+simplejson==2.3.3
 wsgiref==0.1.2
