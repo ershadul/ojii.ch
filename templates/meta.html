@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+{% block hero %}
+        <h1>About this site</h1>
+        <p>All the tech behind it.</p>
+        <p>
+           <a href="https://www.github.com/ojii/" class="btn">GitHub</a>
+           <a href="https://twitter.com/ojiidotch" class="btn">Twitter</a>
+           <a href="/meta/" class="btn">About this site</a>
+        </p>
+{% endblock %}
+
+{% block content %}
+<div class="well">
+    The site is running on <a href="http://flask.pocoo.org">Flask</a> using <a href="http://jinja.pocoo.org/">Jinja2</a> for templating.
+    The timeline is fetched using <a href="http://python-requests.org/">requests</a> and then stored in <a href="http://memcached.org/">memcached</a> using <a href="http://pypi.python.org/pypi/pylibmc">pylibmc</a>.
+    The frontend is based on <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> from <a href="https://twitter.com">Twitter</a>, inspired by the design of <a href="http://kristian.io">kristian.io</a>.
+    The app is proxied through <a href="http://nginx.org/">nginx</a> via <a href="http://gunicorn.org/">gunicorn</a> running in <a href="http://supervisord.org/">supervisor</a> on a <a href="http://www.ubuntu.com/">Ubuntu</a> server on <a href="http://www.rackspace.com/">rackspace</a>.
+</div>
+<div class="well">
+    You can have a look at the source code of this site over at <a href="https://github.com/ojii/ojii.ch">github</a>.
+</div>
+{% endblock %}

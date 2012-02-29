@@ -2,6 +2,7 @@
 from flask import Flask, render_template
 from timeline import gather
 from timesince import timesince
+from twitterlink import autolink
 
 DEFAULT_TIME_FORMAT = ''
 
@@ -11,10 +12,16 @@ app = Flask(__name__)
 def hello():
     return render_template('index.html', messages=gather())
 
+@app.route("/meta/")
+def meta():
+    return render_template('meta.html')
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
+
+app.template_filter('twitterlink')(autolink)
 app.template_filter('timesince')(timesince)
 
 if __name__ == "__main__":

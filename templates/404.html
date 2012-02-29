@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>not found :(</title>
-    <meta name="description" content="The website of Jonas 'ojii' Obrist">
-    <meta name="author" content="Jonas Obrist">
-    <link href="static/bootstrap.css" rel="stylesheet">
-    <link href="static/bootstrap-responsive.css" rel="stylesheet">
-    <link href="static/style.css" rel="stylesheet">
-  </head>
+{% extends "base.html" %}
 
-  <body>
-
-    <div class="container">
-      <div class="hero-unit">
+{% block title %}not found :({% endblock %}
+{% block hero %}
         <h1>Not found :(</h1>
         <p>Maybe head back <a href="/">home</a>.</p>
-      </div>
-    </div>
-  </body>
-</html>
+{% endblock %}
